@@ -1,0 +1,27 @@
+server:
+  port: ${port:8762}
+spring:
+  application:
+    name: provider-log
+  cloud:
+    config:
+      label: master
+      uri: http://localhost:8764
+      discovery:
+        enabled: true
+        service-id: config-server-demo
+    rabbitmq:
+        host: 192.168.0.128
+        port: 5672
+        username: cui
+        password: cui
+    bus:
+      trace:
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  security:
+    enabled: false
